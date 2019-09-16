@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
                 children: [
                   IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.menu, size: 30, color: Colors.grey)),
+                      icon: Icon(Icons.sort, size: 30, color: Colors.grey)),
                   CircleAvatar(
                       radius: 20,
                       backgroundImage: NetworkImage(
