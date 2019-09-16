@@ -1,44 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// components
+import 'package:dashboard_ui/item.dart';
 
 void main() =>
     runApp(MaterialApp(debugShowCheckedModeBanner: false, home: Home()));
 
 class Home extends StatelessWidget {
-  // render each item
-  Widget _renderItem({index = 0, screenWidth = 360.0, context = 0}) {
-    final items = [
-      {'title': 'Expend', 'icon': Icons.home, 'color': 0xffFED525},
-      {'title': 'Collection', 'icon': Icons.star, 'color': 0xffFD637B},
-      {'title': 'Incomes', 'icon': Icons.monetization_on, 'color': 0xff21CDFF},
-      {'title': 'Sales', 'icon': Icons.show_chart, 'color': 0xff7585F6},
-    ];
-    return Container(
-      width: (screenWidth - 40 - 17) / 2,
-      height: (screenWidth - 40 - 17 - 30) / 2,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: Color(items[index]['color']),
-      ),
-      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Container(
-          child: Icon(items[index]['icon'], size: 40, color: Colors.white),
-          margin: EdgeInsets.only(bottom: 10),
-        ),
-        Text(items[index]['title'],
-            style: TextStyle(
-                fontSize: 15, color: Colors.white, fontWeight: FontWeight.bold))
-      ]),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
     // status bar color
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: Color(0xff333), // status bar color
         statusBarIconBrightness: Brightness.dark));
+
     return Scaffold(
         body: SafeArea(
       child: Container(
@@ -82,14 +57,13 @@ class Home extends StatelessWidget {
               spacing: 17,
               runSpacing: 17,
               children: [
-                _renderItem(
-                    index: 0, screenWidth: screenWidth, context: context),
-                _renderItem(
-                    index: 1, screenWidth: screenWidth, context: context),
-                _renderItem(
-                    index: 2, screenWidth: screenWidth, context: context),
-                _renderItem(
-                    index: 3, screenWidth: screenWidth, context: context),
+                Item(title: 'Expend', icon: Icons.home, color: 0xffFED525),
+                Item(title: 'Collection', icon: Icons.star, color: 0xffFD637B),
+                Item(
+                    title: 'Incomes',
+                    icon: Icons.monetization_on,
+                    color: 0xff21CDFF),
+                Item(title: 'Sales', icon: Icons.show_chart, color: 0xff7585F6)
               ],
             ),
           ])),
