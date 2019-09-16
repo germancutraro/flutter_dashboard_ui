@@ -3,4 +3,4 @@
 Simple dashboard ui 
 
 ## Made with
-@bauticutraro
+[@bauticutraro](http://github.com/bauticutraro)
